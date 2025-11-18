@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36" version="29.0.3">
   <diagram id="aws-arch" name="AWS Deployment Diagram">
-    <mxGraphModel dx="1528" dy="907" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1627" dy="1048" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -21,28 +21,28 @@
           <mxGeometry x="620" y="50" width="80" height="100" as="geometry" />
         </mxCell>
         <mxCell id="apigw2" value="API Gateway&#xa;(Order API)" style="shape=mxgraph.aws4.api_gateway;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="330" y="220" width="80" height="100" as="geometry" />
+          <mxGeometry x="160" y="220" width="80" height="100" as="geometry" />
         </mxCell>
         <mxCell id="lambdaOrder" value="Lambda&#xa;Order Processor" style="shape=mxgraph.aws4.lambda;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="460" y="220" width="80" height="100" as="geometry" />
+          <mxGeometry x="657" y="220" width="80" height="100" as="geometry" />
         </mxCell>
         <mxCell id="stepFunctions" value="AWS Step Functions&#xa;Business-Hours + Retry" style="shape=mxgraph.aws4.step_functions;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="600" y="220" width="90" height="110" as="geometry" />
+          <mxGeometry x="797" y="215" width="90" height="110" as="geometry" />
         </mxCell>
         <mxCell id="oea" value="External Order Entry API" style="shape=mxgraph.aws4.internet_gateway;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="750" y="220" width="110" height="110" as="geometry" />
+          <mxGeometry x="947" y="215" width="110" height="110" as="geometry" />
         </mxCell>
         <mxCell id="s3csv" value="S3&#xa;Batch CSV Files" style="shape=mxgraph.aws4.s3_bucket;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="260" y="520" width="80" height="100" as="geometry" />
+          <mxGeometry x="160" y="520" width="80" height="100" as="geometry" />
         </mxCell>
         <mxCell id="lambdaCSV" value="Lambda&#xa;CSV Processor" style="shape=mxgraph.aws4.lambda;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="390" y="520" width="80" height="100" as="geometry" />
+          <mxGeometry x="480" y="520" width="80" height="100" as="geometry" />
         </mxCell>
         <mxCell id="dlq" value="SQS Dead Letter Queue" style="shape=mxgraph.aws4.sqs;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="300" y="370" width="90" height="100" as="geometry" />
+          <mxGeometry x="350" y="380" width="90" height="100" as="geometry" />
         </mxCell>
         <mxCell id="cloudwatch" value="CloudWatch Logs" style="shape=mxgraph.aws4.cloudwatch;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="670" y="570" width="90" height="100" as="geometry" />
+          <mxGeometry x="647" y="520" width="90" height="100" as="geometry" />
         </mxCell>
         <mxCell id="edge1" parent="1" source="user" target="shop" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -59,8 +59,10 @@
         <mxCell id="edge7" parent="1" source="shop" target="apigw2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="edge8" parent="1" source="apigw2" target="lambdaOrder" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="edge8" parent="1" source="apigw2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="330" y="270" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="edge9" parent="1" source="lambdaOrder" target="stepFunctions" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -71,14 +73,13 @@
         <mxCell id="edge11" parent="1" source="s3csv" target="lambdaCSV" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="edge12" parent="1" source="lambdaCSV" target="stepFunctions" edge="1">
+        <mxCell id="edge12" parent="1" source="lambdaCSV" target="FTUvHSdVsyp4S8cPCmAm-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="edge13" parent="1" source="lambdaOrder" target="dlq" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="edge14" parent="1" source="lambdaCSV" target="dlq" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="edge13" style="entryX=0.955;entryY=-0.174;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="FTUvHSdVsyp4S8cPCmAm-6" target="dlq" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="536.3003326683306" y="383.7293897075572" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="edge15" parent="1" source="lambdaOrder" target="cloudwatch" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -88,6 +89,30 @@
         </mxCell>
         <mxCell id="edge17" parent="1" source="lambdaCSV" target="cloudwatch" edge="1">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FTUvHSdVsyp4S8cPCmAm-2" value="Lambda&#xa;Order API" style="shape=mxgraph.aws4.lambda;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="320" y="220" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FTUvHSdVsyp4S8cPCmAm-5" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="269.5" as="sourcePoint" />
+            <mxPoint x="480" y="269.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FTUvHSdVsyp4S8cPCmAm-6" value="Amazon SQS" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=#ffffff;fillColor=#232F3E;dashed=0;verticalLabelPosition=middle;verticalAlign=bottom;align=center;html=1;whiteSpace=wrap;fontSize=10;fontStyle=1;spacing=3;shape=mxgraph.aws4.productIcon;prIcon=mxgraph.aws4.sqs;" vertex="1" parent="1">
+          <mxGeometry x="480" y="230" width="80" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FTUvHSdVsyp4S8cPCmAm-7" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="567" y="269.5" as="sourcePoint" />
+            <mxPoint x="657" y="269.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FTUvHSdVsyp4S8cPCmAm-8" style="entryX=0.951;entryY=-0.122;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="cloudwatch">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="840" y="370" as="sourcePoint" />
+            <mxPoint x="690" y="669" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
