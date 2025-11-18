@@ -1,4 +1,14 @@
 # Planning AWS infrastructure
+
+# Key Points
+
+1. Why serverless (scaling, cost, low maintenance)
+2. Why S3 for CSV (Highly available, further processing possible)
+3. Why SQS + Lambda for retries when OEA is down (no message loss, guaranteed delivery, automatic retries, decoupling)
+4. Why Step Functions for Business-Hours + Retry (business-hour logic, OEA failure handling)
+5. Why DynamoDB (low-maintenance, extremely fast, no complex queries required)
+6. Why OAuth2 (multiple independent systems that must trust each other, industry standard)
+
 ## Core AWS Components
 
 ### Frontend shop
