@@ -26,9 +26,12 @@ export interface AvailabilityData {
 }
 
 export interface AvailableProductResult {
-  productId: string;
   productName: string;
   productCode: string;
   generallyAvailable: boolean;
   price: ProductPrice;
+}
+
+export interface ProductsDatabase {
+  products: ServiceAProduct[];
 }
