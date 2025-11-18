@@ -3,7 +3,7 @@
     "outDir": "./dist",
     "module": "NodeNext",
     "target": "ES2022",
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "bundler",
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
